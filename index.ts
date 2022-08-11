@@ -1,22 +1,68 @@
 interface City {
   center: google.maps.LatLngLiteral;
   population: number;
+  color: string;
 }
 
 const citymap: Record<string, City> = {
-  1: { center: { lat: 28.993609, lng: 113.344639 }, population: 1 },
-  2: { center: { lat: 28.993994, lng: 113.344885 }, population: 1 },
-  3: { center: { lat: 28.994154, lng: 113.345196 }, population: 1 },
-  4: { center: { lat: 28.994341, lng: 113.3454 }, population: 1 },
-  5: { center: { lat: 28.994889, lng: 113.346582 }, population: 1 },
-  6: { center: { lat: 28.994745, lng: 113.347057 }, population: 1 },
-  7: { center: { lat: 28.99482, lng: 113.347615 }, population: 1 },
-  8: { center: { lat: 28.994858, lng: 113.347926 }, population: 1 },
-  9: { center: { lat: 28.994998, lng: 113.34813 }, population: 1 },
-  10: { center: { lat: 28.995148, lng: 113.348409 }, population: 1 },
-  11: { center: { lat: 28.995252, lng: 113.348774 }, population: 1 },
-  12: { center: { lat: 28.995421, lng: 113.34916 }, population: 1 },
-  13: { center: { lat: 28.995468, lng: 113.349353 }, population: 1 },
+  1: {
+    center: { lat: 28.998875761, lng: 113.348858114 },
+    population: 1,
+    color: '#ff0000',
+  },
+  2: {
+    center: { lat: 28.998050891, lng: 113.353666037 },
+    population: 1,
+    color: '#ff0099',
+  },
+  3: {
+    center: { lat: 28.995428401, lng: 113.352399595 },
+    population: 1,
+    color: '#ccff00',
+  },
+  4: {
+    center: { lat: 28.99615303, lng: 113.351122578 },
+    population: 1,
+    color: '#cc6600',
+  },
+  5: {
+    center: { lat: 28.996598417, lng: 113.349939649 },
+    population: 1,
+    color: '#cc0000',
+  },
+  6: {
+    center: { lat: 28.996474179, lng: 113.348503728 },
+    population: 1,
+    color: '#cc3399',
+  },
+  7: {
+    center: { lat: 28.996044681, lng: 113.347377591 },
+    population: 1,
+    color: '#993300',
+  },
+  8: {
+    center: { lat: 28.995735549, lng: 113.346886953 },
+    population: 1,
+    color: '#993399',
+  },
+  9: {
+    center: { lat: 28.996583595, lng: 113.346881623 },
+    population: 1,
+    color: '#66cc00',
+  },
+  10: {
+    center: { lat: 28.997899669, lng: 113.348505052 },
+    population: 1,
+    color: '#33ff00',
+  },
+  11: {
+    center: { lat: 28.9957907155, lng: 113.3517610865 },
+    population: 1,
+    color: '#ccff00',
+  },
+  // 11: { center: { lat: 28.995252, lng: 113.348774 }, population: 1, color: '#333300', },
+  // 12: { center: { lat: 28.995421, lng: 113.34916 }, population: 1, color: '#0099cc', },
+  // 13: { center: { lat: 28.995468, lng: 113.349353 }, population: 1, color: '#3300ff', },
 };
 
 function initMap(): void {
@@ -35,10 +81,10 @@ function initMap(): void {
   for (const city in citymap) {
     // Add the circle for this city to the map.
     const cityCircle = new google.maps.Circle({
-      strokeColor: '#03DAC5',
+      strokeColor: citymap[city].color,
       strokeOpacity: 0.2,
       strokeWeight: 2,
-      fillColor: '#03DAC5',
+      fillColor: citymap[city].color,
       fillOpacity: 0.05,
       map,
       center: citymap[city].center,
@@ -47,9 +93,31 @@ function initMap(): void {
     new google.maps.Marker({
       position: citymap[city].center,
       map,
-      title: '-',
+      title: city + '-' + JSON.stringify(citymap[city].center),
     });
   }
+  const flightPlanCoordinates = [
+    { lat: 28.998875761, lng: 113.348858114 },
+    { lat: 28.998050891, lng: 113.353666037 },
+    { lat: 28.995428401, lng: 113.352399595 },
+    { lat: 28.995790716, lng: 113.351761086 },
+    { lat: 28.99615303, lng: 113.351122578 },
+    { lat: 28.996598417, lng: 113.349939649 },
+    { lat: 28.996474179, lng: 113.348503728 },
+    { lat: 28.996044681, lng: 113.347377591 },
+    { lat: 28.995735549, lng: 113.346886953 },
+    { lat: 28.996583595, lng: 113.346881623 },
+    { lat: 28.997899669, lng: 113.348505052 },
+  ];
+  const flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+  });
+
+  flightPath.setMap(map);
 }
 
 declare global {
