@@ -94,6 +94,7 @@ function initMap(): void {
       position: citymap[city].center,
       map,
       title: city + '-' + JSON.stringify(citymap[city].center),
+      label: `${city}`,
     });
   }
   const flightPlanCoordinates = [
@@ -108,6 +109,7 @@ function initMap(): void {
     { lat: 28.995735549, lng: 113.346886953 },
     { lat: 28.996583595, lng: 113.346881623 },
     { lat: 28.997899669, lng: 113.348505052 },
+    { lat: 28.998875761, lng: 113.348858114 },
   ];
   const flightPath = new google.maps.Polyline({
     path: flightPlanCoordinates,
