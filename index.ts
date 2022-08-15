@@ -5,64 +5,18 @@ interface City {
 }
 
 const citymap: Record<string, City> = {
-  1: {
-    center: { lat: 28.998875761, lng: 113.348858114 },
-    population: 1,
-    color: '#ff0000',
-  },
-  2: {
-    center: { lat: 28.998050891, lng: 113.353666037 },
-    population: 1,
-    color: '#ff0099',
-  },
-  3: {
-    center: { lat: 28.995428401, lng: 113.352399595 },
-    population: 1,
-    color: '#ccff00',
-  },
-  4: {
-    center: { lat: 28.99615303, lng: 113.351122578 },
-    population: 1,
-    color: '#cc6600',
-  },
-  5: {
-    center: { lat: 28.996598417, lng: 113.349939649 },
-    population: 1,
-    color: '#cc0000',
-  },
-  6: {
-    center: { lat: 28.996474179, lng: 113.348503728 },
-    population: 1,
-    color: '#cc3399',
-  },
-  7: {
-    center: { lat: 28.996044681, lng: 113.347377591 },
-    population: 1,
-    color: '#993300',
-  },
-  8: {
-    center: { lat: 28.995735549, lng: 113.346886953 },
-    population: 1,
-    color: '#993399',
-  },
-  9: {
-    center: { lat: 28.996583595, lng: 113.346881623 },
-    population: 1,
-    color: '#66cc00',
-  },
-  10: {
-    center: { lat: 28.997899669, lng: 113.348505052 },
-    population: 1,
-    color: '#33ff00',
-  },
-  11: {
-    center: { lat: 28.9957907155, lng: 113.3517610865 },
-    population: 1,
-    color: '#ccff00',
-  },
-  // 11: { center: { lat: 28.995252, lng: 113.348774 }, population: 1, color: '#333300', },
-  // 12: { center: { lat: 28.995421, lng: 113.34916 }, population: 1, color: '#0099cc', },
-  // 13: { center: { lat: 28.995468, lng: 113.349353 }, population: 1, color: '#3300ff', },
+    1: {center:     {lat:28.998889250,lng:113.348857723},   population: 1,    color: '#ff0000',  },
+    2: {center:     {lat:28.998050583,lng:113.350802553},   population: 1,    color: '#ff0099',  },
+    3: {center:     {lat:28.998064379,lng:113.353665648},   population: 1,    color: '#ccff00',  },
+    4: {center:     {lat:28.995441888,lng:113.352399206},   population: 1,    color: '#cc6600',  },
+    5: {center:     {lat:28.996166517,lng:113.351122188},   population: 1,    color: '#cc0000',  },
+    6: {center:     {lat:28.996611905,lng:113.349939259},   population: 1,    color: '#cc3399',  },
+    7: {center:     {lat:28.996487667,lng:113.348503336},   population: 1,    color: '#993300',  },
+    8: {center:     {lat:28.996058169,lng:113.347377199},   population: 1,    color: '#993399',  },
+    9: {center:     {lat:28.995749036,lng:113.346886561},   population: 1,    color: '#66cc00',  },
+    10: {center:    {lat:28.996597083,lng:113.346881231},   population: 1,    color: '#33ff00',  },
+    11: {center:    {lat:28.997913158,lng:113.348504660},   population: 1,    color: '#ccff00',  },
+    "4+": {center:  {lat:28.9958042025,lng:113.351760697},  population: 1,    color: '#cc6600',  },
 };
 
 function initMap(): void {
@@ -98,18 +52,17 @@ function initMap(): void {
     });
   }
   const flightPlanCoordinates = [
-    { lat: 28.998875761, lng: 113.348858114 },
-    { lat: 28.998050891, lng: 113.353666037 },
-    { lat: 28.995428401, lng: 113.352399595 },
-    { lat: 28.995790716, lng: 113.351761086 },
-    { lat: 28.99615303, lng: 113.351122578 },
-    { lat: 28.996598417, lng: 113.349939649 },
-    { lat: 28.996474179, lng: 113.348503728 },
-    { lat: 28.996044681, lng: 113.347377591 },
-    { lat: 28.995735549, lng: 113.346886953 },
-    { lat: 28.996583595, lng: 113.346881623 },
-    { lat: 28.997899669, lng: 113.348505052 },
-    { lat: 28.998875761, lng: 113.348858114 },
+    {lat:28.998889250, lng:113.348857723},
+    {lat:28.998050583, lng:113.350802553},
+    {lat:28.998064379, lng:113.353665648},
+    {lat:28.995441888, lng:113.352399206},
+    {lat:28.996166517, lng:113.351122188},
+    {lat:28.996611905, lng:113.349939259},
+    {lat:28.996487667, lng:113.348503336},
+    {lat:28.996058169, lng:113.347377199},
+    {lat:28.995749036, lng:113.346886561},
+    {lat:28.996597083, lng:113.346881231},
+    {lat:28.997913158, lng:113.348504660},
   ];
   const flightPath = new google.maps.Polyline({
     path: flightPlanCoordinates,
@@ -129,3 +82,4 @@ declare global {
 }
 window.initMap = initMap;
 export {};
+//CGC2000
